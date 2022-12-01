@@ -1,12 +1,14 @@
-﻿using AdventOfCode.Year2021;
+﻿using AdventOfCode.Year2022;
 var input = "";
-List<int> depths = new List<int>();
+List<string> inputList = new();
 
-while (input != "9548")
+
+while (input != "8805")
 {
     input = Console.ReadLine();
-    depths.Add(Int32.Parse(input));
-} 
+    inputList.Add(input);
+}
 
-var  depthCounter = FirstDayOfChristmas.BetterSonar(depths);
-Console.WriteLine(depthCounter);
+
+var output = FirstDay.TopThreeCalories(inputList);
+Console.WriteLine("Der Elf mit den meisten Kalorien hat "+output);
