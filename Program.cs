@@ -12,8 +12,7 @@ do
 
 
 
-    var output = Puzzles.RockPaperScissors(inputList);
-var output1 = Puzzles.RockPaperScissorsAfterTheElfStoppedTrolling(inputList);
-var output2 = Puzzles.RockPaperScissorsBestSolution(inputList);
+    var output = Puzzles.BackpackProblem(inputList);
+
 Console.WriteLine("Es sind  "+output + " Punkte");
 Console.WriteLine();

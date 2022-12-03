@@ -203,5 +203,221 @@ namespace AdventOfCode.Year2022
 
         #endregion
 
+        #region Day Three
+        public static int BackpackProblem(List<string> backpacks)
+        {
+            var priorityPoints = 0;
+            var priorityPoints2 = 0;
+            foreach (var backpack in backpacks)
+            {
+                if(backpack != "")
+                {
+                    var segment1 = backpack.Substring(0, backpack.Length / 2 - 1);
+                    var segment2 = backpack.Substring(backpack.Length / 2);
+
+                    foreach (var item in segment1)
+                    {
+                        if (segment2.Contains(item))
+                        {
+                            if (item >= 'a' && item <= 'z')
+                            {
+                                var calculatedValue = item - 96;
+                                priorityPoints2 += item - 96;
+
+                                switch (item)
+                                {
+                                    case 'a':
+                                        priorityPoints += 1;
+                                        continue;
+                                    case 'b':
+                                        priorityPoints += 2;
+                                        continue;
+                                    case 'c':
+                                        priorityPoints += 3;
+                                        continue;
+                                    case 'd':
+                                        priorityPoints += 4;
+                                        continue;
+                                    case 'e':
+                                        priorityPoints += 5;
+                                        continue;
+                                    case 'f':
+                                        priorityPoints += 6;
+                                        continue;
+                                    case 'g':
+                                        priorityPoints += 7;
+                                        continue;
+                                    case 'h':
+                                        priorityPoints += 8;
+                                        continue;
+                                    case 'i':
+                                        priorityPoints += 9;
+                                        continue;
+                                    case 'j':
+                                        priorityPoints += 10;
+                                        continue;
+                                    case 'k':
+                                        priorityPoints += 11;
+                                        continue;
+                                    case 'l':
+                                        priorityPoints += 12;
+                                        continue;
+                                    case 'm':
+                                        priorityPoints += 13;
+                                        continue;
+                                    case 'n':
+                                        priorityPoints += 14;
+                                        continue;
+                                    case 'o':
+                                        priorityPoints += 15;
+                                        continue;
+                                    case 'p':
+                                        priorityPoints += 16;
+                                        continue;
+                                    case 'q':
+                                        priorityPoints += 17;
+                                        continue;
+                                    case 'r':
+                                        priorityPoints += 18;
+                                        continue;
+                                    case 's':
+                                        priorityPoints += 19;
+                                        continue;
+                                    case 't':
+                                        priorityPoints += 20;
+                                        continue;
+                                    case 'u':
+                                        priorityPoints += 21;
+                                        continue;
+                                    case 'v':
+                                        priorityPoints += 22;
+                                        continue;
+                                    case 'w':
+                                        priorityPoints += 23;
+                                        continue;
+                                    case 'x':
+                                        priorityPoints += 24;
+                                        continue;
+                                    case 'y':
+                                        priorityPoints += 25;
+                                        continue;
+                                    case 'z':
+                                        priorityPoints += 26;
+                                        continue;
+
+                                    default:
+                                        break;
+                                }
+                                //var addedValue = item - 96;
+                                //Console.WriteLine("Duplicate is:"+ item + ". The Value is: " + addedValue);
+                            }
+                            else if(item >= 'A' && item <='Z')
+                            {
+                                priorityPoints2 += item - 38;
+                                var calculatedValue = item - 38;
+                                switch (item)
+                                {
+                                    case 'A':
+                                        priorityPoints += 1 + 26;
+                                        continue;
+                                    case 'B':
+                                        priorityPoints += 2 + 26;
+                                        continue;
+                                    case 'C':
+                                        priorityPoints += 3 + 26;
+                                        continue;
+                                    case 'D':
+                                        priorityPoints += 4 + 26;
+                                        continue;
+                                    case 'E':
+                                        priorityPoints += 5 + 26;
+                                        continue;
+                                    case 'F':
+                                        priorityPoints += 6 + 26;
+                                        continue;
+                                    case 'G':
+                                        priorityPoints += 7 + 26;
+                                        continue;
+                                    case 'H':
+                                        priorityPoints += 8 + 26;
+                                        continue;
+                                    case 'I':
+                                        priorityPoints += 9 + 26;
+                                        continue;
+                                    case 'J':
+                                        priorityPoints += 10 + 26;
+                                        continue;
+                                    case 'K':
+                                        priorityPoints += 11 + 26;
+                                        continue;
+                                    case 'L':
+                                        priorityPoints += 12 + 26;
+                                        continue;
+                                    case 'M':
+                                        priorityPoints += 13 + 26;
+                                        continue;
+                                    case 'N':
+                                        priorityPoints += 14 + 26;
+                                        continue;
+                                    case 'O':
+                                        priorityPoints += 15 + 26;
+                                        continue;
+                                    case 'P':
+                                        priorityPoints += 16 + 26;
+                                        continue;
+                                    case 'Q':
+                                        priorityPoints += 17 + 26;
+                                        continue;
+                                    case 'R':
+                                        priorityPoints += 18 + 26;
+                                        continue;
+                                    case 'S':
+                                        priorityPoints += 19 + 26;
+                                        continue;
+                                    case 'T':
+                                        priorityPoints += 20 + 26;
+                                        continue;
+                                    case 'U':
+                                        priorityPoints += 21 + 26;
+                                        continue;
+                                    case 'V':
+                                        priorityPoints += 22 + 26;
+                                        continue;
+                                    case 'W':
+                                        priorityPoints += 23 + 26;
+                                        continue;
+                                    case 'X':
+                                        priorityPoints += 24 + 26;
+                                        continue;
+                                    case 'Y':
+                                        priorityPoints += 25 + 26;
+                                        continue;
+                                    case 'Z':
+                                        priorityPoints += 26 + 26;
+                                        continue;
+
+                                    default:
+                                        break;
+                                }
+                                //var addedValue = item - 38;
+                                //Console.WriteLine("Duplicate is:" + item + ". The Value is: " + addedValue);
+                            }
+                            else
+                            {
+                                Console.WriteLine("How did we get here?");
+                            }
+                            break;
+                        }
+                    }
+                }
+
+
+            }
+
+
+            return priorityPoints;
+        }
+        #endregion
+
     }
 }
