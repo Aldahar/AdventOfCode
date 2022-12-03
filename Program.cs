@@ -12,7 +12,7 @@ do
 
 
 
-    var output = Puzzles.BackpackProblem(inputList);
+    var output = Puzzles.BackpackOrganization(inputList);
 
 Console.WriteLine("Es sind  "+output + " Punkte");
 Console.WriteLine();

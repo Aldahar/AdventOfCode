@@ -211,9 +211,8 @@ namespace AdventOfCode.Year2022
             {
                 if(backpack != "")
                 {
-                    var segment1 = backpack.Substring(0, backpack.Length / 2 - 1);
+                    var segment1 = backpack.Substring(0, backpack.Length / 2);
                     var segment2 = backpack.Substring(backpack.Length / 2);
-
                     foreach (var item in segment1)
                     {
                         if (segment2.Contains(item))
@@ -221,23 +220,45 @@ namespace AdventOfCode.Year2022
                             if (item >= 'a' && item <= 'z')
                             {
                                 priorityPoints += item - 96;
-                                var addedValue = item - 96;
-                                Console.WriteLine("Duplicate is:"+ item + ". The Value is: " + addedValue);
                             }
                             else
                             {
                                 priorityPoints += item - 38;
-                                var addedValue = item - 38;
-                                Console.WriteLine("Duplicate is:" + item + ". The Value is: " + addedValue);
                             }
                             break;
                         }
+
                     }
                 }
 
 
             }
 
+
+            return priorityPoints;
+        }
+
+        public static int BackpackOrganization(List<string> backpacks)
+        {
+            var priorityPoints = 0;
+            for (int i = 0; i < backpacks.Count; i+=3)
+            {
+                foreach (var item in backpacks[i])
+                {
+                    if (backpacks[i+1].Contains(item) && backpacks[i + 2].Contains(item))
+                    {
+                        if (item >= 'a' && item <= 'z')
+                        {
+                            priorityPoints += item - 96;
+                        }
+                        else
+                        {
+                            priorityPoints += item - 38;
+                        }
+                        break;
+                    }
+                }
+            }
 
             return priorityPoints;
         }
