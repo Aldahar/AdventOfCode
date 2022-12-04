@@ -264,5 +264,58 @@ namespace AdventOfCode.Year2022
         }
         #endregion
 
+        #region Day Four
+        public static int CleanUp(List<string> assignemnts)
+        {
+            var completlyUseless = 0;
+            foreach (var pair in assignemnts)
+            {
+                if (pair == "")
+                    break;
+                var pairSplit = pair.Split(',');
+                var firstElf = pairSplit[0].Split('-').ToList();
+                var secondElf = pairSplit[1].Split('-').ToList();
+                var lowerBoundElf1 = int.Parse(firstElf[0]);
+                var upperBoundElf1 = int.Parse(firstElf[1]);
+                var lowerBoundElf2 = int.Parse(secondElf[0]);
+                var upperBoundElf2 = int.Parse(secondElf[1]);
+
+
+                if ((lowerBoundElf1 <= lowerBoundElf2 && upperBoundElf1 >= upperBoundElf2) ||(lowerBoundElf2 <= lowerBoundElf1 && upperBoundElf2 >= upperBoundElf1))
+                {
+                    completlyUseless++;
+                }
+            }
+
+            return completlyUseless;
+        }
+
+        public static int InefficiencyIsTheDeathOfElves(List<string> assignemnts)
+        {
+            var completlyUseless = 0;
+            foreach (var pair in assignemnts)
+            {
+                if (pair == "")
+                    break;
+                var pairSplit = pair.Split(',');
+                var firstElf = pairSplit[0].Split('-').ToList();
+                var secondElf = pairSplit[1].Split('-').ToList();
+                var lowerBoundElf1 = int.Parse(firstElf[0]);
+                var upperBoundElf1 = int.Parse(firstElf[1]);
+                var lowerBoundElf2 = int.Parse(secondElf[0]);
+                var upperBoundElf2 = int.Parse(secondElf[1]);
+
+
+                if(!(lowerBoundElf1>upperBoundElf2 || upperBoundElf1 < lowerBoundElf2))
+                {
+                    completlyUseless++;
+                }
+
+
+            }
+
+            return completlyUseless;
+        }
+        #endregion
     }
 }
