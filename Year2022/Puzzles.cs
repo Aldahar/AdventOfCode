@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Year2022
 {
@@ -315,6 +316,107 @@ namespace AdventOfCode.Year2022
             }
 
             return completlyUseless;
+        }
+        #endregion
+
+        #region Day Five
+
+        public static string SupplyStacks(List<string> allInfos, bool crateMaster9001 = false)
+        {
+            var stacks = new List<string>();
+            List<List<string>> movements = new();
+
+            List<List<string>> crates = new();
+
+            foreach (var row in allInfos) //Find all the Lines that create the containers
+            {
+                if (row[1] == '1')
+                {
+                    break;
+                }
+                stacks.Add(row);
+            }
+            for (int j = 1; j < stacks[0].Count() - 1; j += 4)
+            {
+                var currentColumn = new List<string>();
+                for (int i = stacks.Count -1; i >= 0; i--)  //Create the Containersetup
+                {
+                    if (stacks[i][j] + "" == " ")
+                    {
+                        break;
+                    }
+                    var sign = stacks[i][j] + "";
+                    currentColumn.Add(sign);
+
+
+
+
+                }
+                crates.Add(currentColumn);
+            }   
+
+
+            foreach (var move in allInfos)  //Find all the lines that show the movements
+            {
+                if(move == "")
+                {
+                    continue;
+                }
+                if (move[0] == 'm')
+                {
+                    var workString = Regex.Replace(move, "[a-z]", "");
+                    var list = workString.Split(" ").ToList();
+                    list.RemoveAll(row => row == "");
+                    movements.Add(list);
+
+                }
+            }
+
+            foreach (var move in movements)
+            {
+                if (crateMaster9001)
+                {
+                    CrateMover9001(crates, int.Parse(move[0]), int.Parse(move[1]), int.Parse(move[2]));
+                }
+                else
+                {
+                    Move(crates, int.Parse(move[0]), int.Parse(move[1]), int.Parse(move[2]));
+                }
+                
+
+
+            }
+
+            var result = "";
+            foreach (var stack in crates)
+            {
+
+                result += stack[stack.Count - 1];
+            }
+            return result;
+        }
+
+ 
+
+        private static List<List<string>> Move(List<List<string>> container, int count, int from, int to)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                
+                container[to-1].Add(container[from-1][container[from-1].Count() - 1]);
+                container[from-1].RemoveAt(container[from-1].Count() - 1);
+                
+            }
+            return container;
+        }
+
+        private static List<List<string>> CrateMover9001(List<List<string>> container, int count, int from, int to)
+        {
+            var movedContainers = container[from - 1].GetRange(container[from - 1].Count() - count, count);
+            container[from - 1].RemoveRange(container[from - 1].Count() - count, count);
+            container[to - 1].AddRange(movedContainers);
+
+            return container;
         }
         #endregion
     }
