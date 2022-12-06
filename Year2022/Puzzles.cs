@@ -419,5 +419,32 @@ namespace AdventOfCode.Year2022
             return container;
         }
         #endregion
+
+        #region DaySix
+        public static int BrokenCommDevice(List<string> recieved, int keyLength = 4)
+        {
+            var noise = recieved[0];
+            string currentValue = "";
+
+            for (int i = 0; i < noise.Length-1; i++)
+            {
+                if (currentValue.Length == keyLength)
+                    return i;
+
+                if (currentValue.Contains(noise[i]))
+                {
+                    var lastOccurence = currentValue.IndexOf(noise[i]);
+                    currentValue = currentValue.Substring(lastOccurence + 1);
+                    currentValue += noise[i];
+                }
+                else
+                {
+                    currentValue += noise[i];
+                }
+            }
+            return 0;
+        }
+
+        #endregion
     }
 }

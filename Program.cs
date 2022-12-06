@@ -12,7 +12,7 @@ do
 
 
 
-    var output = Puzzles.SupplyStacks(inputList);
+    var output = Puzzles.BrokenCommDevice(inputList,14);
 
 Console.WriteLine("Es sind  "+output + " Punkte");
 Console.WriteLine();
