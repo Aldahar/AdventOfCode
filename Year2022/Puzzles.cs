@@ -420,7 +420,7 @@ namespace AdventOfCode.Year2022
         }
         #endregion
 
-        #region DaySix
+        #region Day Six
         public static int BrokenCommDevice(List<string> recieved, int keyLength = 4)
         {
             var noise = recieved[0];
@@ -446,5 +446,134 @@ namespace AdventOfCode.Year2022
         }
 
         #endregion
+
+        #region Day Seven
+
+        private static List<TreeNode> BuildTree(List<string> cmdInput)
+        {
+            TreeNode FirstNode = new()
+            {
+                Name = "Top",
+
+            };
+            FirstNode.Childs.Add(new()
+            {
+                Name = "/"
+            });
+            List<TreeNode> totalList = new();
+            TreeNode currentNode = new();
+            currentNode = FirstNode;
+            totalList.Add(currentNode.Childs[0]); //add Root to Return list
+
+            foreach (var command in cmdInput)
+            {
+                var parts = command.Split(' ');
+                if (parts[0] == "a")
+                {
+                    break;
+                }
+                if (parts[0] == "$") // if the input is a command. Possible commands are cd and ls
+                {
+                    if (parts[1] == "cd") //wenn dir dann set current directory
+                    {
+                        if (parts[2] == "..") //Backstep
+                        {
+                            currentNode = currentNode.Parent;
+                        }
+                        else
+                        {
+                            currentNode = currentNode.Childs.First(row => row.Name == parts[2]);
+                        }
+                    }
+                    if (parts[1] == "ls") // wenn ls dann wird bis zum nächsten $ alles angezeigt was in dem ordner drin ist
+                    {
+                        //dont even need this
+                    }
+
+
+                }
+                else
+                {
+                    int value = 0;
+                    if (int.TryParse(parts[0], out value))
+                    {
+                        currentNode.Value += value;
+                    }
+                    else
+                    {
+                        TreeNode newNode = new() { Name = parts[1], Parent = currentNode };
+                        totalList.Add(newNode);
+                        currentNode.Childs.Add(newNode);
+                    }
+                }
+            }
+            return totalList;
+        }
+        public static int FindSpace(List<string> cmdInput)
+        {
+            var totalList = BuildTree(cmdInput);
+            
+            var totalVal = 0;
+            foreach (var node in totalList)
+            {
+                if (node.TotalValue <= 100000)
+                {
+                    totalVal += node.TotalValue;
+                }
+            }
+
+            return totalVal;
+        }
+        public static int DeleteBestFit(List<string> cmdInput)
+        {
+            var totalList = BuildTree(cmdInput);
+            var neededFit = 30000000 - (70000000 - totalList[0].TotalValue);
+            var currentBestFit = totalList[0];
+            foreach (var node in totalList)
+            {
+                if ((currentBestFit.TotalValue >= node.TotalValue) && (node.TotalValue >= neededFit))
+                {
+                    currentBestFit = node;
+                }
+            }
+            return currentBestFit.TotalValue;
+
+        }
+
+
+        #endregion
+    }
+
+    public class TreeNode
+    {
+        public string Name { get; set; } = "";
+        public int Value { get; set; } = 0; // Value of Datafiles
+
+        public TreeNode? Parent { get; set; }
+
+        public List<TreeNode> Childs { get; set; }
+        public int TotalValue //Total value, all datafiles + subdirectorys
+        {
+            get
+            {
+                int addedValue = 0;
+                foreach (var node in Childs)
+                {
+                    addedValue += node.TotalValue;
+                }
+                return addedValue + Value;
+            }
+        }
+
+        public TreeNode()
+    {
+            Childs = new();
+    }
+        public TreeNode(TreeNode parent)
+        {
+            this.Parent = parent;
+            Childs = new();
+        }
+
     }
 }

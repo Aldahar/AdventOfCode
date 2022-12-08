@@ -12,7 +12,7 @@ do
 
 
 
-    var output = Puzzles.BrokenCommDevice(inputList,14);
+    var output = Puzzles.DeleteBestFit(inputList);
 
 Console.WriteLine("Es sind  "+output + " Punkte");
 Console.WriteLine();
