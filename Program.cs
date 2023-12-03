@@ -24,17 +24,22 @@ using AdventOfCode2023;
 
 #region 2023
 
-var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
+var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\ThirdDay2023.txt").ToList();
 
 #region FirstDay
 
-var d1p2 = FirstDayOfChristmas.CalculateCalibration(lines);
-var d1p1 = FirstDayOfChristmas.CalculateCalibrationWords(lines);
+//var d1p2 = FirstDayOfChristmas.CalculateCalibration(lines);
+//var d1p1 = FirstDayOfChristmas.CalculateCalibrationWords(lines);
 #endregion
 
 #region SecondDay
-var d2p1 = SecondDayOfChristmas.CubeGame(lines, 12, 13, 14);
-var d2p2 = SecondDayOfChristmas.ThePowerOfTheCubes(lines);
+//var d2p1 = SecondDayOfChristmas.CubeGame(lines, 12, 13, 14);
+//var d2p2 = SecondDayOfChristmas.ThePowerOfTheCubes(lines);
+#endregion
+
+#region ThirdDay
+//var d3p1= ThirdDayOfChristmas.CheckEngine(lines);
+var d3p2 = ThirdDayOfChristmas.FindGearRatios(lines);
 #endregion
 
 
@@ -43,7 +48,7 @@ var d2p2 = SecondDayOfChristmas.ThePowerOfTheCubes(lines);
 
 
 
-Console.WriteLine(d2p2);
+Console.WriteLine(d3p2);
 
 
 
