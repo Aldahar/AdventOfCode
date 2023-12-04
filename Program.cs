@@ -24,7 +24,7 @@ using AdventOfCode2023;
 
 #region 2023
 
-var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\ThirdDay2023.txt").ToList();
+var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FourthDay2023.txt").ToList();
 
 #region FirstDay
 
@@ -39,7 +39,14 @@ var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\ThirdDay2023.txt").ToList
 
 #region ThirdDay
 //var d3p1= ThirdDayOfChristmas.CheckEngine(lines);
-var d3p2 = ThirdDayOfChristmas.FindGearRatios(lines);
+//var d3p2 = ThirdDayOfChristmas.FindGearRatios(lines);
+#endregion
+
+#region FourthDay
+//var d4p1 = FourthDayOfChristmas.CheckWinnings(lines);
+var d4p2 = FourthDayOfChristmas.TotalScratchCards(lines);
+
+
 #endregion
 
 
@@ -48,7 +55,7 @@ var d3p2 = ThirdDayOfChristmas.FindGearRatios(lines);
 
 
 
-Console.WriteLine(d3p2);
+Console.WriteLine(d4p2);
 
 
 
