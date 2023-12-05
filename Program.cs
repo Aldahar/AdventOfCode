@@ -24,7 +24,7 @@ using AdventOfCode2023;
 
 #region 2023
 
-var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FourthDay2023.txt").ToList();
+var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FifthDay2023.txt").ToList();
 
 #region FirstDay
 
@@ -44,8 +44,13 @@ var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FourthDay2023.txt").ToLis
 
 #region FourthDay
 //var d4p1 = FourthDayOfChristmas.CheckWinnings(lines);
-var d4p2 = FourthDayOfChristmas.TotalScratchCards(lines);
+//var d4p2 = FourthDayOfChristmas.TotalScratchCards(lines);
 
+#endregion
+
+#region FifthDay
+
+var d5p1 = FifthDayOfChristmas.CalculateSeedPosition(lines);
 
 #endregion
 
@@ -55,7 +60,7 @@ var d4p2 = FourthDayOfChristmas.TotalScratchCards(lines);
 
 
 
-Console.WriteLine(d4p2);
+Console.WriteLine(d5p1);
 
 
 
