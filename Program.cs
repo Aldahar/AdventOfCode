@@ -24,7 +24,9 @@ using AdventOfCode2023;
 
 #region 2023
 
-var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FifthDay2023.txt").ToList();
+var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\SixthDay2023.txt").ToList();
+
+//var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
 
 #region FirstDay
 
@@ -50,7 +52,18 @@ var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\FifthDay2023.txt").ToList
 
 #region FifthDay
 
-var d5p1 = FifthDayOfChristmas.CalculateSeedPosition(lines);
+//var d5p1 = FifthDayOfChristmas.CalculateSeedPosition(lines);
+//var line = File.ReadAllText("..\\..\\..\\InputFiles\\FifthDay2023.txt");
+//var d5p2 = FifthDayOfChristmas.SeedRanges(line);
+//var day = new Day05(line);
+//var result = day.Part2();
+
+#endregion
+
+#region SixthDay
+
+//var d6p1 = SixthDayOfChrismas.BoatRace(lines);
+var d6p2 = SixthDayOfChrismas.LongBoatRace(lines);
 
 #endregion
 
@@ -60,7 +73,7 @@ var d5p1 = FifthDayOfChristmas.CalculateSeedPosition(lines);
 
 
 
-Console.WriteLine(d5p1);
+Console.WriteLine(d6p2);
 
 
 
