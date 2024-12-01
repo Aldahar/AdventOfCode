@@ -1,5 +1,6 @@
 ﻿using AdventOfCode.Year2022;
 using AdventOfCode.Year2023;
+using AdventOfCode.Year2024;
 using AdventOfCode2023;
 
 
@@ -24,9 +25,9 @@ using AdventOfCode2023;
 
 #region 2023
 
-var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\SixthDay2023.txt").ToList();
+//var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\NinthDay.txt").ToList();
 
-//var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
+var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
 
 #region FirstDay
 
@@ -63,17 +64,58 @@ var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\SixthDay2023.txt").ToList
 #region SixthDay
 
 //var d6p1 = SixthDayOfChrismas.BoatRace(lines);
-var d6p2 = SixthDayOfChrismas.LongBoatRace(lines);
+//var d6p2 = SixthDayOfChrismas.LongBoatRace(lines);
+
+#endregion
+
+#region SeventhDay
+
+//var d7p1 = SeventhDayOfChristmas.CamelCardWinnings(lines);
+#endregion
+
+#region EightDay
+//var d8p1 = EigthDayOfChristmas.ReadTheMap(lines);
+//var d8p2 = EigthDayOfChristmas.GhostSteps(lines);
+#endregion
+
+#region NinthDay
+
+//var d9p1 = NinthDayOfChristmas.ExtrapolateTheEnvironment(lines);
+//var d9p2 = NinthDayOfChristmas.ExtrapolateThePast(lines);
+
+#endregion
+
+#region TenthDay
+
+//var ten = new TenthDayOfChristmas(lines);
+
+
+//var d10p1 = ten.FindEndpoint();
+
+
+#endregion
+
+#region EleventhDay
+var eleven = EleventhDayOfChristmas.FindGalaxies(lines);
 
 #endregion
 
 
 #endregion
 
+#region 2024
+
+var lines2024 = File.ReadAllLines("..\\..\\..\\InputFiles\\FirstDay2024.txt").ToList();
+
+var output = AdventOfCode.Year2024.FirstDayOfChristmas.ListCompare(lines2024);
+var simScore = AdventOfCode.Year2024.FirstDayOfChristmas.SimilarityScore(lines2024);
+
+
+#endregion
 
 
 
-Console.WriteLine(d6p2);
+Console.WriteLine(simScore);
 
 
 

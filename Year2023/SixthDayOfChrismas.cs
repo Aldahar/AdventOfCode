@@ -43,6 +43,11 @@ namespace AdventOfCode.Year2023
             var distance = long.Parse(lines[1].Split(':')[1].Replace(" ",""));
 
 
+            double res1;
+            double res2;
+
+            (res1, res2) = QuadraticFormula(-1, times, distance);
+
             int waysToBeatRecord = 0;
             for (int j = 0; j <= times; j++)
             {
@@ -62,6 +67,15 @@ namespace AdventOfCode.Year2023
 
 
             return waysToBeatRecord;
+        }
+
+
+        public static (double,double) QuadraticFormula(long a,long b, long c)
+        {
+            var res1 = ((-b) + Math.Sqrt(Math.Pow(b, 2) - (4 * (a * c)))) / (2 * a);
+            var res2 = ((-b) - Math.Sqrt(Math.Pow(b, 2) - (4 * (a * c)))) / (2 * a);
+
+            return (res1, res2);
         }
     }
 }
