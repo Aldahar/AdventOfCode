@@ -33,6 +33,9 @@ namespace AdventOfCode.Year2024
             StringBuilder sb = new StringBuilder();
             input.ForEach(row => sb.Append(row));
 
+            string allCommands = "".PadLeft(sb.ToString().Length, '-');
+            string onlyValidMuls = "".PadLeft(sb.ToString().Length, '-');
+
             var results = rule.Matches(sb.ToString());
             bool doAct = true;
             foreach (Match match in results)
@@ -42,19 +45,27 @@ namespace AdventOfCode.Year2024
                 {
                     case "do()":
                         doAct = true;
+                        allCommands = allCommands.Remove(match.Index, 4).Insert(match.Index, "do()");
                         break;
                     case "don't()":
                         doAct = false;
+                        allCommands = allCommands.Remove(match.Index, 6).Insert(match.Index, "don't()");
                         break;
                     default:
                         if (doAct)
                         {
                             var result = match.Value.Substring(4, (match.Value.Length - 5)).Split(',').ToList().ConvertAll(row => Int32.Parse(row));
                             counter += result[0] * result[1];
+                            allCommands = allCommands.Remove(match.Index, match.Length).Insert(match.Index, match.Value);
+                            onlyValidMuls= onlyValidMuls.Remove(match.Index, match.Length).Insert(match.Index, match.Value);
+
+
                         }
                         break;
                 }
             }
+            Console.WriteLine(allCommands);
+            Console.WriteLine(onlyValidMuls);
             return counter;
         }
     }

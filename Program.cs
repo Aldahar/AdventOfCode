@@ -106,7 +106,7 @@ var lines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
 #region 2024
 
 var testLines = File.ReadAllLines("..\\..\\..\\InputFiles\\test.txt").ToList();
-var lines2024 = File.ReadAllLines("..\\..\\..\\InputFiles\\FourthDay2024.txt").ToList();
+var lines2024 = File.ReadAllLines("..\\..\\..\\InputFiles\\FifthDay2024.txt").ToList();
 
 #region Day1
 //var output = AdventOfCode.Year2024.FirstDayOfChristmas.ListCompare(lines2024);
@@ -119,12 +119,17 @@ var lines2024 = File.ReadAllLines("..\\..\\..\\InputFiles\\FourthDay2024.txt").T
 #endregion
 
 #region Day3
-//var result = AdventOfCode.Year2024.ThirdDayOfChristmas.MemoryCorruptorDo(lines2024);
+//var MemoryCorruptorDo = AdventOfCode.Year2024.ThirdDayOfChristmas.MemoryCorruptorDo(lines2024);
 
 #endregion
 
 #region Day4
-var result = AdventOfCode.Year2024.FourthDayOfChristmas.XCrossMAS(lines2024);
+//var result = AdventOfCode.Year2024.FourthDayOfChristmas.XCrossMAS(lines2024);
+
+#endregion
+
+#region Day5
+var result = AdventOfCode.Year2024.FifthDayOfChristmas.SafetyManual(lines2024);
 
 #endregion
 
@@ -132,7 +137,7 @@ var result = AdventOfCode.Year2024.FourthDayOfChristmas.XCrossMAS(lines2024);
 
 
 
-Console.WriteLine(result);
+Console.WriteLine(result.Item2);
 
 
 

@@ -146,7 +146,7 @@ namespace AdventOfCode.Year2024
                     ListOfAs.Add((match.Index + 1, i + match.Index + 1));
                 }
             }
-            Console.WriteLine();
+
             for (int i = input.Count - 1; i >= 0; i--) // Scans in this direction     /
             {                                           //                          /
                 int y = i;                              //                          /
@@ -169,14 +169,10 @@ namespace AdventOfCode.Year2024
                 occurence++;
             }
                     ListOfAs.Add((i - match.Index - 1, match.Index+1));
-                    var a = input[ListOfAs.Last().Item1][ListOfAs.Last().Item2];
-                    var b = ListOfAs.Last();
 
                 }
             }
-            Console.WriteLine();
-
-
+            
             for (int i = 1; i <= input[0].Length; i++) // Scans in this direction     ////
             {
                 int y = input.Count - 1;
@@ -198,15 +194,9 @@ namespace AdventOfCode.Year2024
                     {
                         occurence++;
                     }
-                    ListOfAs.Add((input[0].Length - match.Index - 2, i + match.Index + 1));
-                    var a = input[ListOfAs.Last().Item1][ListOfAs.Last().Item2];
                 }
             }
 
-            foreach (var item in ListOfAs)
-            {
-                Console.WriteLine(input[item.Item1][item.Item2]);
-            }
 
 
 
